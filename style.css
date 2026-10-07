@@ -1,0 +1,621 @@
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1140px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+    position: relative;
+}
+
+/* Кнопка прокрутки Наверх */
+.scroll_top_btn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    background-color: #279bab;
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.scroll_top_btn:hover {
+    background-color: #f9bf3b;
+    color: #1a1a1a;
+    transform: translateY(-3px);
+}
+
+/* Выпадающее меню переключения языков */
+.lang_dropdown {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    z-index: 100;
+}
+
+.lang_main_btn {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    color: #ffffff;
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.lang_main_btn:hover {
+    background-color: #f9bf3b;
+    color: #1a1a1a;
+    border-color: #f9bf3b;
+}
+
+.lang_menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 38px;
+    background-color: #ffffff;
+    min-width: 140px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.lang_menu.show {
+    display: block;
+}
+
+.lang_option {
+    color: #333333;
+    padding: 10px 14px;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.lang_option:hover, .lang_option.active {
+    background-color: #f9bf3b;
+    color: #000000;
+    font-weight: 700;
+}
+
+/* Кнопка */
+.btn {
+    display: block;
+    margin: 0 auto;
+    width: 313px;
+    height: 72px;
+    border: none;
+    border-radius: 4px;
+    background-image: linear-gradient(to top, #279bab 0%, #00c2bd 100%);
+    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.22);
+    color: #ffffff;
+    font-size: 21px;
+    font-weight: 400;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn:hover {
+    background-image: linear-gradient(to top, #1f7d8a 0%, #00a4a0 100%);
+}
+
+/* 1. Главный экран */
+.promo {
+    min-height: 800px;
+    background-image: url('img/main_bg.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 39px 0 62px 0;
+}
+
+.logo {
+    text-align: center;
+}
+
+.logo_img {
+    display: block;
+    margin: 0 auto;
+    width: 40px;
+}
+
+.logo_text {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 24px;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+
+.title {
+    color: #f9bf3b;
+    font-size: 41px;
+    font-weight: 900;
+    line-height: 41px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 53px;
+}
+
+.simple_title {
+    color: #ffffff;
+    font-size: 80px;
+    font-weight: 900;
+    line-height: 80px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 21px;
+}
+
+.title_sub {
+    color: #f9bf3b;
+    font-size: 41px;
+    font-weight: 900;
+    line-height: 41px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 21px;
+}
+
+.promo_divider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 18px;
+}
+
+.promo_line {
+    width: 290px;
+    height: 2px;
+    background-color: #ffffff;
+}
+
+.promo_point {
+    width: 110px;
+    height: 4px;
+    background-color: #f9bf3b;
+}
+
+.promo_text {
+    color: #ffffff;
+    font-size: 21px;
+    font-weight: 300;
+    line-height: 28px;
+    text-align: center;
+    margin-top: 23px;
+}
+
+.promo_text .highlight {
+    color: #f9bf3b;
+    font-weight: 700;
+}
+
+.promo .btn {
+    margin-top: 73px;
+}
+
+.more {
+    display: block;
+    margin-top: 70px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.more_text {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.more_img {
+    color: #ffffff;
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+/* 2. Что вас ждет */
+.waiting {
+    min-height: 604px;
+    background-color: #efefef;
+    padding: 85px 0 75px 0;
+}
+
+.waiting_header {
+    color: #252525;
+    font-size: 30px;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.waiting_divider {
+    width: 217px;
+    height: 4px;
+    background-color: #f9bf3b;
+    margin: 18px auto 0 auto;
+}
+
+.waiting_subheader {
+    color: #4a4a4a;
+    font-size: 23px;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 17px;
+}
+
+.waiting_wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 45px;
+}
+
+.waiting_item {
+    width: 342px;
+    text-align: center;
+}
+
+.waiting_img img {
+    width: 100%;
+    height: auto;
+}
+
+.waiting_descr {
+    color: #4a4a4a;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 21px;
+    margin-top: 26px;
+}
+
+/* 3. Оптимизация */
+.optimization {
+    padding: 80px 0;
+    background-color: #ffffff;
+}
+
+.optimization_wrapper {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.optimization_img_box {
+    width: 450px;
+    flex-shrink: 0;
+}
+
+.optimization_img {
+    width: 100%;
+    display: block;
+}
+
+.optimization_block {
+    flex-grow: 1;
+}
+
+.optimization_header {
+    color: #299cbd;
+    font-size: 28px;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1.3;
+}
+
+.optimization_text {
+    color: #4a4a4a;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 24px;
+    margin-top: 20px;
+}
+
+.optimization_text p {
+    margin-bottom: 15px;
+}
+
+.optimization_text p:last-child {
+    margin-bottom: 0;
+}
+
+.optimization_text .bold {
+    font-weight: 700;
+}
+
+/* 4. По окончании обучения */
+.finish {
+    min-height: 447px;
+    padding: 86px 0 79px 0;
+    background-image: url('img/second_bg.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.finish_header {
+    color: #efefef;
+    font-size: 30px;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.finish_divider {
+    width: 217px;
+    height: 4px;
+    background-color: #f9bf3b;
+    margin: 18px auto 0 auto;
+}
+
+.finish_wrapper {
+    margin-top: 39px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.finish_item {
+    width: 204px;
+}
+
+.finish_round {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 115px;
+    height: 115px;
+    background-color: #b4e2ee;
+    border-radius: 100%;
+}
+
+.finish_descr {
+    color: #efefef;
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 20px;
+    text-align: center;
+    margin-top: 25px;
+}
+
+/* 5. Бонусы */
+.gift {
+    min-height: 328px;
+    background-color: #efefef;
+    padding: 86px 0 87px 0;
+    text-align: center;
+}
+
+.gift_img {
+    display: block;
+    margin: 0 auto;
+}
+
+.gift_text {
+    color: #252525;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 25px;
+    margin-top: 42px;
+}
+
+.gift .btn {
+    margin-top: 52px;
+}
+
+/* 6. Дата вебинара */
+.first {
+    min-height: 515px;
+    padding: 89px 0 64px 0;
+    text-align: center;
+}
+
+.first_img {
+    display: block;
+    margin: 0 auto;
+    width: 342px;
+    max-width: 100%;
+}
+
+.first_header {
+    color: #252525;
+    font-size: 30px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-top: 37px;
+}
+
+.first_date {
+    color: #299cbd;
+    font-size: 36px;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-top: 21px;
+}
+
+.first_sub {
+    color: #4a4a4a;
+    font-size: 23px;
+    font-weight: 400;
+    margin-top: 25px;
+}
+
+/* 7. Футер */
+footer {
+    min-height: 166px;
+    background-color: #1a1a1a;
+    padding: 61px 0 69px 0;
+    text-align: center;
+}
+
+.footer_links a {
+    color: #888888;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 21px;
+    text-decoration: underline;
+}
+
+.footer_phone {
+    color: #888888;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 21px;
+    margin-top: 8px;
+}
+
+/* ===================================================
+   АДАПТИВНОСТЬ (MEDIA QUERIES) ДЛЯ ПЛАНШЕТОВ И СМАРТФОНОВ
+   =================================================== */
+
+/* Планшеты (до 991px) */
+@media (max-width: 991px) {
+    .title {
+        font-size: 32px;
+        line-height: 36px;
+    }
+    .simple_title {
+        font-size: 60px;
+        line-height: 60px;
+    }
+    .title_sub {
+        font-size: 32px;
+        line-height: 36px;
+    }
+    .promo_line {
+        width: 180px;
+    }
+
+    .waiting_wrapper {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .optimization_wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+    .optimization_img_box {
+        width: 80%;
+        max-width: 400px;
+    }
+    .optimization_block {
+        margin-left: 0;
+    }
+
+    .finish_wrapper {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+    }
+}
+
+/* Мобильные телефоны (до 767px) */
+@media (max-width: 767px) {
+    .title {
+        font-size: 24px;
+        line-height: 28px;
+        margin-top: 35px;
+    }
+    .simple_title {
+        font-size: 42px;
+        line-height: 46px;
+    }
+    .title_sub {
+        font-size: 24px;
+        line-height: 28px;
+    }
+    .promo_text {
+        font-size: 16px;
+        line-height: 22px;
+    }
+    .promo_line {
+        width: 100px;
+    }
+    .btn {
+        width: 90%;
+        max-width: 300px;
+        font-size: 18px;
+        height: 60px;
+    }
+
+    .waiting {
+        padding: 50px 0;
+    }
+    .waiting_header {
+        font-size: 22px;
+    }
+    .waiting_subheader {
+        font-size: 18px;
+    }
+    .waiting_item {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .optimization {
+        padding: 50px 0;
+    }
+    .optimization_header {
+        font-size: 22px;
+    }
+    .optimization_text {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .finish {
+        padding: 50px 0;
+    }
+    .finish_header {
+        font-size: 22px;
+    }
+    .finish_item {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .first_header {
+        font-size: 22px;
+    }
+    .first_date {
+        font-size: 24px;
+    }
+    .first_sub {
+        font-size: 18px;
+    }
+}
